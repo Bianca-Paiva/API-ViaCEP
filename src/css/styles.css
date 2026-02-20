@@ -7,11 +7,13 @@
 :root {
     --primary-color: #F0F4F8;
     --secondary-color: #FFFFFF;
-    --label: #001838;
-    --shadow-color: #AAAAAA;
-    --input-readonly-color: #e6e7e7;
-    --input-readonly-text-color: #606060;
-    --input-border-color: #00549E; 
+    --label: #000000;
+    --shadow-color: #999999;
+    --input-readonly-color: #c7c7c795;
+    --input-second-readonly-color: #c7c7c76d;
+    --input-readonly-text-color: #292929;
+    --input-border-color: #565656;
+    --button-color: #00549E;
     --button-hover: #037de8;
 }
 
@@ -21,7 +23,7 @@ body {
 
     display: flex;
     justify-content: center;
-    padding: 40px 16px;
+    padding: 80px 24px;
 }
 
 .container {
@@ -31,19 +33,40 @@ body {
     padding: 40px;
     width: 100%;
     max-width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: 20px;
+    cursor: auto;
 }
 
 .grupoCep {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
+}
+
+.linhaCep {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.linhaCep input {
+    flex: 1;
+}
+
+.linhaCep button {
+    margin-top: 0;
+    white-space: nowrap;
 }
 
 .grupoCampos {
     display: flex;
     flex-direction: column;
+    margin-top: 16px;
 }
 
 .grupoLadoaLado {
@@ -55,28 +78,33 @@ label {
     font-size: 15px;
     font-weight: 600;
     color: var(--label);
+    margin-bottom: 3px;
 }
 
 input[type="text"] {
-    border: 2px solid var(--shadow-color);
+    border: 2px solid transparent;
+    background-color: var(--input-second-readonly-color);
     border-radius: 8px;
     padding: 10px 14px;
     font-size: 16px;
     width: 100%;
+    transition: all 0.2s ease;
     outline: none;
+    cursor: auto;
 }
 
-input[type="text"]:focus {
-    border-color: var(--input-border-color);
+input[type="text"]:not([readonly]):hover {
+    border: 2px solid var(--input-border-color);
 }
 
 input[readonly] {
+    border: 1px solid #e3e3e3;
     background-color: var(--input-readonly-color);
     color: var(--input-readonly-text-color);
 }
 
 button {
-    background-color: var(--input-border-color);
+    background-color: var(--button-color);
     padding: 10px 24px;
     color: var(--primary-color);
     border: none;
